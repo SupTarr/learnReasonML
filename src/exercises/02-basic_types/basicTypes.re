@@ -67,12 +67,13 @@ let floatFour = 4.;
   In Reason there's no explicit return statement: functions just return the
   value of the last statement in that function.
  */
-/* let intAverage = (x, y) => failwith("For you to implement"); */
-let intAverage = (x, y) => failwith("For you to implement");
+
+/* let intAverage = (x, y) => (x + y) / 2; */
+let intAverage = (x, y) => (x + y) / 2;
 
 /* let floatAverage : (float, float) => float */
-/* let floatAverage = (x, y) => failwith("For you to implement"); */
-let floatAverage = (x, y) => failwith("For you to implement");
+/* let floatAverage = (x, y) => (x +. y) /. 2.; */
+let floatAverage = (x, y) => (x +. y) /. 2.;
 
 /*
   The following expression computes the average of 10 and 20:
@@ -85,6 +86,7 @@ let floatAverage = (x, y) => failwith("For you to implement");
 
   let firstName : string
  */
+
 let firstName = "Fred";
 
 /* You can also write type annotations in definitions */
@@ -94,6 +96,7 @@ let lastName: string = "Flintstone";
   But Reason has very strong type inference, so you can most often omit types,
   and the compiler can infer that fullName is a string.
  */
+
 let fullName = firstName ++ " " ++ lastName;
 
 let aBooleanFalse: bool = false;
@@ -104,7 +107,8 @@ let aBooleanFalse: bool = false;
   || for logical or
   !  for logical not
  */
-let () = assert (true || aBooleanFalse);
+
+let () = assert(true || aBooleanFalse);
 
 /*
   The [unit] type
@@ -119,10 +123,11 @@ let () = assert (true || aBooleanFalse);
   To combine several unit operations together the ; operator is used contained
   within curly braces.
  */
+
 let () = {
   print_endline("Hi, My name is ");
   print_endline(fullName);
-  print_endline(" and I am 5 years old");
+  print_endline("and I am 5 years old");
 };
 
 /*
