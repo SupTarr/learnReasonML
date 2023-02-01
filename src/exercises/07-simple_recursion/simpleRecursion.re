@@ -5,6 +5,7 @@
   Try changing "let rec" to "let" and you'll see the following compiler error:
   "The value addEveryNumberUpTo can't be found"
  */
+
 let rec addEveryNumberUpTo = x => {
   /* make sure we don't call this on negative numbers! */
   assert (x >= 0);
@@ -18,9 +19,13 @@ let rec addEveryNumberUpTo = x => {
   Let's write a function to multiply every number up to x.
   Remember: [factorial 0] is 1
  */
+
 let rec factorial = x => {
   assert (x >= 0);
-  failwith("For you to implement");
+  switch (x) {
+  | 0 => 1
+  | _ => x * factorial(x - 1)
+  };
 };
 
 Test.runAll([
