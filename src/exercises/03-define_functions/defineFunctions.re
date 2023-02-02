@@ -7,12 +7,15 @@
   For example, here we define a function add1 that takes a single int
   argument and returns that argument plus 1.
  */
+
 let add1 = arg => arg + 1;
 
 /* This function uses the built-in ++ operator to append strings. */
+
 let stringAppend = (x, y) => x ++ y;
 
 /* Let's define our own functions using +, -, *, and / below. */
+
 let plus = (x, y) => x + y;
 
 let times = (x, y) => x * y;

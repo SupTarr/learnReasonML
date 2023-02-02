@@ -29,6 +29,7 @@
 
   int four;
  */
+
 let four = 4;
 
 /*
@@ -46,6 +47,7 @@ let four = 4;
   Try inserting an incorrect signature for [floatFour] to see what error the
   compiler gives you.
  */
+
 let floatFour = 4.;
 
 /*
@@ -90,6 +92,7 @@ let floatAverage = (x, y) => (x +. y) /. 2.;
 let firstName = "Fred";
 
 /* You can also write type annotations in definitions */
+
 let lastName: string = "Flintstone";
 
 /*
@@ -148,11 +151,13 @@ let () = {
   In words: [equal] takes two [int]s and returns a [bool]. The following line
   is applying that function to two inputs, [5] and [int_average 5 5].
  */
+
 Test.runAll([
   (intAverage(5, 5) == 5, "int average"),
   (floatAverage(5., 5.) == 5., "float average"),
   (floatAverage(5., 10.) == 7.5, "float average"),
 ]);
+
 /*
   .rei files
   ==========

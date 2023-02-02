@@ -16,10 +16,11 @@ let isSuperman = x =>
   whether x is non zero by matching on x
  */
 
-let nonZero = x => switch (x) {
+let nonZero = x =>
+  switch (x) {
   | 0 => false
   | _ => true
-};
+  };
 
 Test.runAll([
   (nonZero(0) == false, "non zero"),

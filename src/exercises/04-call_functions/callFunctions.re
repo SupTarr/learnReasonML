@@ -12,6 +12,7 @@ let add = (x, y) => x + y;
 let () = Js.log("(5^2)/2 = " ++ string_of_int(half(square(5))));
 
 /* Let bindings */
+
 let () = {
   let squared = square(5);
   let halved = half(squared);
@@ -20,6 +21,7 @@ let () = {
 };
 
 /* Try to write [average] by reusing [add] and [half] */
+
 let average = (x, y) => half(add(x, y));
 
 Test.runAll([
