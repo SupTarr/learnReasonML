@@ -14,6 +14,7 @@
 
   This function computes the length of a list.
  */
+
 let rec length = lst =>
   switch (lst) {
   | [] => 0
@@ -21,7 +22,12 @@ let rec length = lst =>
   };
 
 /* Write a function to add up the elements of a list by matching on it. */
-let rec sum = lst => failwith("For you to implement");
+
+let rec sum = lst =>
+  switch (lst) {
+  | [] => 0
+  | [hd, ...tl] => hd + sum(tl)
+  };
 
 /*
   The signature for the append operator is
@@ -29,12 +35,14 @@ let rec sum = lst => failwith("For you to implement");
 
   It's an infix operator.
  */
+
 let listAppend = (first, second) => first @ second;
 
 /*
   The way you put something on the head to the list uses the same kind of
   syntax for matching on lists. This is called the spread syntax.
  */
+
 let newHead = (hd, rest) => [hd, ...rest];
 
 Test.runAll([
