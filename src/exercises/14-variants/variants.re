@@ -7,12 +7,14 @@
   types which may take on multiple forms, where each form is marked
   by an explicit tag. A variant type is defined as follows:
  */
+
 type color =
   | Red
   | Green
   | Blue;
 
 /* Variants are very useful in combination with pattern matching */
+
 let toString = color =>
   switch (color) {
   | Red => "red"
@@ -24,6 +26,7 @@ let toString = color =>
   Reason variants are in many ways more powerful than Enums because the different
   constructors of your variant can include data in them. Here's an example:
  */
+
 type cardValue =
   | Ace
   | King
@@ -48,7 +51,15 @@ let cardValueToString = cardValue =>
   Write a function that computes the score of a card (aces should score 11
   and face cards should score 10).
  */
-let cardValueToScore = cardValue => failwith("For you to implement");
+
+let cardValueToScore = cardValue =>
+  switch (cardValue) {
+  | Ace => 11
+  | King => 10
+  | Queen => 10
+  | Jack => 10
+  | Number(i) => i
+  };
 
 Test.runAll([
   (cardValueToScore(Ace) == 11, "card value to score"),
