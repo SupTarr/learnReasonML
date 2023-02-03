@@ -1,4 +1,5 @@
 /* Here is [every] from the "Sum Product" problem */
+
 let rec every = (answer, combine, xs) =>
   switch (xs) {
   | [] => answer
@@ -9,6 +10,7 @@ let rec every = (answer, combine, xs) =>
   Here are two functions which compute the largest and smallest integers in a
   list of integers:
  */
+
 let rec largest = xs =>
   switch (xs) {
   | [] => neg_infinity
@@ -22,9 +24,10 @@ let rec smallest = xs =>
   };
 
 /* Let's rewrite them using every: */
-let simplerLargest = xs => failwith("For you to implement");
 
-let simplerSmallest = xs => failwith("For you to implement");
+let simplerLargest = xs => every(neg_infinity, max, xs);
+
+let simplerSmallest = xs => every(infinity, min, xs);
 
 Test.runAll([
   (simplerSmallest([]) == infinity, "simpler smallest"),
