@@ -27,6 +27,7 @@
 
   let mapOption : (('a => 'b), option('a)) => option('b)
  */
+
 let mapOption = (f, opt) =>
   switch (opt) {
   | None => None
@@ -43,6 +44,7 @@ let () = assert (mapOption(double, Some(2)) == Some(4));
   Instead of defining the function double beforehand, we can use an anonymous
   function.
  */
+
 let () = assert (mapOption(i => 2 * i, Some(2)) == Some(4));
 
 /*
@@ -50,7 +52,12 @@ let () = assert (mapOption(i => 2 * i, Some(2)) == Some(4));
   and an int, and applies the function if the integer is not zero, and
   otherwise just returns 0.
  */
-let applyIfNonzero = (f, i) => failwith("For you to implement");
+
+let applyIfNonzero = (f, i) =>
+  switch i {
+  | 0 => 0
+  | _ => f(i)
+  }
 
 Test.runAll([
   (applyIfNonzero(x => 10 / x, 0) == 0, "apply if non-zero"),
