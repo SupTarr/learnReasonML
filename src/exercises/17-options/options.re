@@ -7,6 +7,7 @@
   In real life you would always use the [option] type provided by the standard
   library.
  */
+
 type option('a) =
   | None
   | Some('a);
@@ -16,6 +17,7 @@ type option('a) =
   meaning the data exists, and that data specifically is [x]. Here's an
   example:
  */
+
 let whatNumberAmIThinking = (myNumber: option(int)) =>
   switch (myNumber) {
   | None => "I'm not thinking of any number!"
@@ -31,7 +33,12 @@ assert (whatNumberAmIThinking(Some(7)) == "My number is: 7");
   ints and returns an int option. It should return None if [divisor = 0], and
   otherwise returns [Some(x)] where [x] is the division result
  */
-let safeDivide = (~dividend, ~divisor) => failwith("For you to implement");
+
+let safeDivide = (~dividend, ~divisor) =>
+  switch divisor {
+  | 0 => None
+  | _ => Some(dividend / divisor)
+  }
 
 Test.runAll([
   (

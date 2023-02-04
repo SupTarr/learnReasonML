@@ -84,7 +84,7 @@ let rec every = (answer, combine, xs) =>
 
 /* Now let's rewrite sum and product in just one line each using every */
 
-let simplerSum = xs => every(0, (+), xs);
+let simplerSum = xs => every(0, ( + ), xs);
 
 let simplerProduct = xs => every(1, ( * ), xs);
 
