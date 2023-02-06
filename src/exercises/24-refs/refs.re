@@ -26,12 +26,16 @@ let minAndMax = lst => {
   let min_int = ref(infinity);
   let max_int = ref(neg_infinity);
 
-  List.fold_left((_, ele) => if (float_of_int(ele) > max_int^) {
-    max_int := float_of_int(ele)
-  } else if (float_of_int(ele) < min_int^) {
-    min_int := float_of_int(ele)
-  }
-  , (), lst);
+  List.fold_left(
+    (_, ele) =>
+      if (float_of_int(ele) > max_int^) {
+        max_int := float_of_int(ele);
+      } else if (float_of_int(ele) < min_int^) {
+        min_int := float_of_int(ele);
+      },
+    (),
+    lst,
+  );
 
   (int_of_float(min_int^), int_of_float(max_int^));
 };

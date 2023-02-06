@@ -53,7 +53,7 @@ module MyList: {
 
   let filter = (f, lst) =>
     List.fold_left(
-      (total, ele) => f(ele) ? total @ [ele] : total @ [],
+      (total, ele) => f(ele) ? total @ [ele] : total,
       [],
       lst,
     );
