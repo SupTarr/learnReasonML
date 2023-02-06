@@ -33,7 +33,7 @@ let minAndMax = lst => {
   }
   , (), lst);
 
-  (min_int^ |> int_of_float, max_int^ |> int_of_float);
+  (int_of_float(min_int^), int_of_float(max_int^));
 };
 
 Js.log(minAndMax([5, 9, 2, 4, 3]));
