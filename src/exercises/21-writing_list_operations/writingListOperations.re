@@ -20,13 +20,15 @@
   Let's revisit the sumOfMyInts example we've seen before. In this case, types
   'a and 'b are both equal to int.
  */
+
 let ints = [1, 2, 3];
 
 let sumOfMyInts = List.fold_left((total, myInt) => total + myInt, 0, ints);
 
-let () = assert (6 == sumOfMyInts);
+let () = assert(6 == sumOfMyInts);
 
 /* Now let's use List.fold_left to write some other useful List functions. */
+
 module MyList: {
   /*
     map(f, list) takes a function [f] from ('a => 'b) and a list('a) and
@@ -44,12 +46,17 @@ module MyList: {
    */
   let filter: ('a => bool, list('a)) => list('a);
 } = {
-  /* TODO */
-  let map = (f, lst) => failwith("For you to implement");
-  /* TODO */
-  let iter = (f, lst) => failwith("For you to implement");
-  /* TODO */
-  let filter = (f, lst) => failwith("For you to implement");
+  let map = (f, lst) =>
+    List.fold_left((total, ele) => total @ [f(ele)], [], lst);
+
+  let iter = (f, lst) => List.fold_left((_, ele) => f(ele), (), lst);
+
+  let filter = (f, lst) =>
+    List.fold_left(
+      (total, ele) => f(ele) ? total @ [ele] : total @ [],
+      [],
+      lst,
+    );
 };
 
 /*
@@ -65,7 +72,8 @@ module MyList: {
 
   let hd: list('a) => 'a;
  */
-let () = assert (List.hd([1, 2, 3]) == 1);
+
+let () = assert(List.hd([1, 2, 3]) == 1);
 
 /*
   Similarly, List.tl returns all but the first element of the list. It also raises
@@ -73,14 +81,16 @@ let () = assert (List.hd([1, 2, 3]) == 1);
 
   let tl: list('a) => list('a);
  */
-let () = assert (List.tl([1, 2, 3]) == [2, 3]);
+
+let () = assert(List.tl([1, 2, 3]) == [2, 3]);
 
 /*
   List.rev returns the reverse of the input list.
 
   let rev: list('a) => list('a);
  */
-let () = assert (List.rev([1, 2, 3]) == [3, 2, 1]);
+
+let () = assert(List.rev([1, 2, 3]) == [3, 2, 1]);
 
 /*
   List.mem returns a bool indicating if the given element is contained in the
@@ -88,7 +98,8 @@ let () = assert (List.rev([1, 2, 3]) == [3, 2, 1]);
 
   let mem: ('a, list('a)) => bool;
  */
-let () = assert (List.mem(3, [1, 2, 3]));
+
+let () = assert(List.mem(3, [1, 2, 3]));
 
 /*
   List.sort returns a sorted list in increasing order according to the specified
@@ -98,7 +109,8 @@ let () = assert (List.mem(3, [1, 2, 3]));
 
   let sort: (('a, 'a) => int, list('a)) => list('a);
  */
-let () = assert (List.sort((x, y) => x - y, [3, 1, 2]) == [1, 2, 3]);
+
+let () = assert(List.sort((x, y) => x - y, [3, 1, 2]) == [1, 2, 3]);
 
 let acc = ref(0);
 

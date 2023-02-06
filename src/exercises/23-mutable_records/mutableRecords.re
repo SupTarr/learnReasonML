@@ -8,6 +8,7 @@
 
   Then you can update those fields in place with the = operator.
  */
+
 type color =
   | Red
   | Yellow
@@ -19,6 +20,7 @@ type stoplight = {
 };
 
 /* On creation mutable fields are defined just like normal fields */
+
 let anExample: stoplight = {
   location: "The corner of Vesey Street and the West Side highway",
   color: Red,
@@ -28,6 +30,7 @@ let anExample: stoplight = {
   Now rather than using a functional update we can use a mutable update.
   This doesn't return a new stoplight, it modifies the input stoplight.
  */
+
 let setColor = (stoplight, color) => stoplight.color = color;
 
 /*
@@ -35,7 +38,13 @@ let setColor = (stoplight, color) => stoplight.color = color;
   Red, and Red to Green, we can just write a function to advance the color
   of the light without taking an input color.
  */
-let advanceColor = stoplight => failwith("For you to implement");
+
+let advanceColor = stoplight =>
+  switch (stoplight.color) {
+  | Green => setColor(stoplight, Yellow)
+  | Yellow => setColor(stoplight, Red)
+  | Red => setColor(stoplight, Green)
+  };
 
 module ForTesting = {
   let test_ex_red: stoplight = {location: "", color: Red};
